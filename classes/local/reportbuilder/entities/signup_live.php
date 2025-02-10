@@ -17,6 +17,7 @@
 namespace mod_facetoface\local\reportbuilder\entities;
 
 use core_reportbuilder\local\entities\base;
+use core_reportbuilder\local\filters\autocomplete;
 use core_reportbuilder\local\filters\boolean_select;
 use core_reportbuilder\local\filters\date;
 use core_reportbuilder\local\filters\number;
@@ -174,8 +175,8 @@ class signup_live extends base {
         ))->add_joins($this->get_joins());
 
         $filters[] = (new filter(
-            select::class,
-            'statuscode',
+            autocomplete::class,
+            'status',
             new lang_string('status', 'mod_facetoface'),
             $this->get_entity_name(),
             "{$statustable}.statuscode"
