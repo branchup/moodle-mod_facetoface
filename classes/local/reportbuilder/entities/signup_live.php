@@ -95,7 +95,7 @@ class signup_live extends base {
             ->add_field("{$statustable}.statuscode")
             ->add_joins($this->get_joins())
             ->set_type(column::TYPE_INTEGER)
-            ->add_callback(static function(int $value) {
+            ->add_callback(static function(?int $value) {
                 if ($value === MDL_F2F_STATUS_BOOKED) {
                     return get_string('status_booked', 'mod_facetoface');
                 } else if ($value === MDL_F2F_STATUS_WAITLISTED) {

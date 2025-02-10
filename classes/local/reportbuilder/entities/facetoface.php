@@ -112,7 +112,7 @@ class facetoface  extends base {
             ->add_field("{$table}.showoncalendar")
             ->add_joins($this->get_joins())
             ->set_type(column::TYPE_INTEGER)
-            ->add_callback(static function (int $value) {
+            ->add_callback(static function (?int $value) {
                 if ($value === F2F_CAL_NONE) {
                     return get_string('none', 'core');
                 } else if ($value === F2F_CAL_COURSE) {
@@ -154,7 +154,7 @@ class facetoface  extends base {
             ->add_field("{$table}.signuptype")
             ->add_joins($this->get_joins())
             ->set_type(column::TYPE_INTEGER)
-            ->add_callback(static function(int $value) {
+            ->add_callback(static function(?int $value) {
                 if ($value === MOD_FACETOFACE_SIGNUP_SINGLE) {
                     return get_string('single', 'mod_facetoface');
                 } else if ($value === MOD_FACETOFACE_SIGNUP_MULTIPLE) {
@@ -168,7 +168,7 @@ class facetoface  extends base {
             ->add_field("{$table}.multiplesignupmethod")
             ->add_joins($this->get_joins())
             ->set_type(column::TYPE_INTEGER)
-            ->add_callback(static function(int $value) {
+            ->add_callback(static function(?int $value) {
                 if ($value === MOD_FACETOFACE_SIGNUP_MULTIPLE_PER_SESSION) {
                     return get_string('multiplesignuppersession', 'mod_facetoface');
                 } else if ($value === MOD_FACETOFACE_SIGNUP_MULTIPLE_PER_ACTIVITY) {
